@@ -119,7 +119,7 @@ shiny-server: 1.3.0.403
 
 ## Create and enable swap file
 
--   This step is necessary when running on a T2.mirco EC2 instance. You won't be able to install certain R packages (e.g. `dplyr`, `tidyr`) without the additional allocated memory from the swap 
+**NOTE**: This step is necessary when running on a T2.mirco EC2 instance. You won't be able to install certain R packages (e.g. `dplyr`, `tidyr`) without the additional allocated memory from the swap 
 
 -  First we need to create and enable the swap file:
 
@@ -132,7 +132,7 @@ shiny-server: 1.3.0.403
     
 -   Next, we need to make sure that the swap file is enabled even after rebooting the system
 
--   Edit the `fstab``file with root privileges in your text editor:
+-   Edit the `fstab` file with root privileges in your text editor:
 
     ```bash
     sudo nano /etc/fstab
@@ -191,10 +191,6 @@ shiny-server: 1.3.0.403
     install.packages("ggplot2")
     q()         # quit R
     ```
-    
--   A few other packages are highly recommended but you might encounter issues installing certain packages due to 
-    memory limitations available on the EC2 instance or missing libraries in our EC2 instance.  For more details, 
-    please refer to the [Problematic Packages](#problematic-packages) section for a brief outline.
 
 -   Other than that, you can come back anytime in the future to install R-packages by logging in with `su` and 
     installing R packages via the command line.
